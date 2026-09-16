@@ -634,8 +634,14 @@
   .btn-pri { --bubble:var(--navy); }
   .btn-pri:hover { color:#fff; box-shadow:0 16px 34px -14px rgba(27,43,58,.55); }
   .btn-ghost { --bubble:#fff; }
-  .btn-ghost:hover { color:var(--navy); background:transparent; border-color:#fff; }
-  .close .btn-ghost:hover { color:var(--navy); }
+  /* The dark-on-hover text only works once the white bubble has filled the
+     button, and the bubble cells are built by hifi.js — which bails out
+     entirely under prefers-reduced-motion. Without this guard the label turned
+     navy on a navy hero and disappeared. */
+  @media (prefers-reduced-motion: no-preference) {
+    .btn-ghost:hover { color:var(--navy); background:transparent; border-color:#fff; }
+    .close .btn-ghost:hover { color:var(--navy); }
+  }
   .btn:active { transform:translateY(0) scale(.978); transition-duration:.09s; }
 
   /* nav CTA keeps its own size — it is a .btn but a small one */
