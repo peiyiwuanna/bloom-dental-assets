@@ -225,7 +225,7 @@
   /* headline per ad. ?v= is a short code set in the ad's final URL (never patient input) */
   var variants = {
     vn: {k:"Porcelain veneers · San Mateo", h:'<span class="ln">Porcelain veneers,</span><span class="ln">designed around</span><span class="ln">your <em>face.</em></span>',
-         l:"Porcelain veneers with Dr. Lior Tamir in San Mateo, for teeth that are chipped, worn, gapped or deeply stained.", c:1},
+         l:"Handmade porcelain veneers, made by a master ceramist.", c:1},
     sm: {k:"Smile makeover · San Mateo", h:'<span class="ln">One plan for</span><span class="ln">your whole <em>smile.</em></span>',
          l:"Veneers, whitening and gum contouring with Dr. Lior Tamir in San Mateo, decided together rather than one at a time.", c:4},
     fm: {k:"Full mouth rehabilitation · San Mateo", h:'<span class="ln">Your whole bite,</span><span class="ln">planned around</span><span class="ln">your <em>face.</em></span>',
