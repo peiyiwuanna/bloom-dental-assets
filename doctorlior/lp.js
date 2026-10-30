@@ -1,6 +1,6 @@
 /* Dr. Lior cosmetic LP behaviour. Built by build_lp.py. Runs after the embed markup (loaded before </body>). */
 (function(){
-  var IMG = "https://cdn.jsdelivr.net/gh/peiyiwuanna/bloom-dental-assets@a0e341a862a08c2b92bcc69599c334678890ac5d/doctorlior/cases/";
+  var IMG = "https://cdn.jsdelivr.net/gh/peiyiwuanna/bloom-dental-assets@PENDING/doctorlior/cases/";
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
   var desktop = matchMedia('(min-width: 1024px)');
