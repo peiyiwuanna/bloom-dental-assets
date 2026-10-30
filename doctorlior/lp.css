@@ -402,6 +402,7 @@
     .closing .ctas{gap:12px}
     .visit{margin-top:40px;gap:22px}
     .cmap{width:100%}
+    .cmap-wrap{width:100%}
     .cmap{flex-direction:column;align-items:stretch;padding:10px 10px 16px}
     .cmap-thumb{width:100%;height:180px}
     .cmap-tiles{transform:scale(1.25)}
