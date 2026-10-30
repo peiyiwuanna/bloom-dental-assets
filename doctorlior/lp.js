@@ -134,7 +134,7 @@
     var phone = matchMedia('(max-width:760px)');
     function layout(){
       order.forEach(function(ci, pos){
-        var c = cards[ci]; c.style.setProperty('--pos', pos); c.style.setProperty('--fx', pos ? (pos % 2 ? 1 : -1) : 0); c.classList.toggle('top', pos === 0);
+        var c = cards[ci]; c.style.setProperty('--pos', pos); c.style.setProperty('--fx', pos ? (pos % 2 ? 1 : -1) : 0); c.classList.toggle('is-top', pos === 0);
         if (phone.matches) c.setAttribute('aria-hidden', pos ? 'true' : 'false'); else c.removeAttribute('aria-hidden');
       });
       num.textContent = (order[0] + 1) + ' / ' + cards.length;
@@ -157,7 +157,7 @@
     var x0 = null, dx = 0, top;
     list.addEventListener('pointerdown', function(e){
       if (!phone.matches || e.target.closest('a,button')) return;
-      top = e.target.closest('.tcard.top'); if (!top) return;
+      top = e.target.closest('.tcard.is-top'); if (!top) return;
       x0 = e.clientX; dx = 0; top.classList.remove('nudge'); clearInterval(timer);
     });
     list.addEventListener('pointermove', function(e){
