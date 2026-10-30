@@ -59,13 +59,13 @@
     el.addEventListener('pointerleave', function(){ el.classList.add('ease'); el.style.setProperty('--x', '50%'); });
   }
   function baHTML(f, ph){
-    return '<div class="ba' + (ph ? ' ph' : '') + '"' + (ph ? ' data-ph="' + ph + '"' : '') + '><img class="full" loading="lazy" src="' + IMG + f + '" alt="Before and after, patient of Dr. Lior"><div class="l b" style="background-image:url(' + IMG + f + ')"></div><div class="l a" style="background-image:url(' + IMG + f + ')"></div><div class="seam"></div><span class="tag t1">Before</span><span class="tag t2">After</span></div>';
+    return '<div class="ba' + (ph ? ' ph' : '') + '"' + (ph ? ' data-ph="' + ph + '"' : '') + '><img class="ba-full" loading="lazy" src="' + IMG + f + '" alt="Before and after, patient of Dr. Lior"><div class="l b" style="background-image:url(' + IMG + f + ')"></div><div class="l a" style="background-image:url(' + IMG + f + ')"></div><div class="seam"></div><span class="tag t1">Before</span><span class="tag t2">After</span></div>';
   }
 
   var ba = document.getElementById('aBa'), casesEl = document.getElementById('aCases');
   bindBA(ba);
   function setCase(f){
-    ba.querySelector('.full').src = IMG + f;
+    ba.querySelector('.ba-full').src = IMG + f;
     ba.querySelectorAll('.l').forEach(function(l){ l.style.backgroundImage = 'url(' + IMG + f + ')'; });
     casesEl.querySelectorAll('button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.f === f ? 'true' : 'false'); });
     /* a short sweep shows the visitor the photo can be compared */
@@ -145,12 +145,12 @@
     function nudge(){ var c = cards[order[0]]; c.classList.remove('nudge'); void c.offsetWidth; c.classList.add('nudge'); if (++nudges >= 3) clearInterval(timer); }
     function next(dir){
       var c = cards[order[0]];
-      c.classList.remove('drag', 'nudge'); c.classList.add('fly');
+      c.classList.remove('is-drag', 'nudge'); c.classList.add('fly');
       c.style.transform = 'translateX(' + (dir > 0 ? 120 : -120) + 'vw) rotate(' + (dir > 0 ? 14 : -14) + 'deg)';
       setTimeout(function(){
-        c.classList.remove('fly'); c.classList.add('drag'); c.style.transform = '';
+        c.classList.remove('fly'); c.classList.add('is-drag'); c.style.transform = '';
         order.push(order.shift()); layout();
-        void c.offsetHeight; c.classList.remove('drag');
+        void c.offsetHeight; c.classList.remove('is-drag');
       }, 340);
     }
     function back(){ order.unshift(order.pop()); layout(); }
@@ -162,13 +162,13 @@
     });
     list.addEventListener('pointermove', function(e){
       if (x0 === null) return;
-      dx = e.clientX - x0; top.classList.add('drag');
+      dx = e.clientX - x0; top.classList.add('is-drag');
       top.style.transform = 'translateX(' + dx + 'px) rotate(' + dx / 22 + 'deg)';
     });
     function end(){
       if (x0 === null) return; x0 = null;
       if (Math.abs(dx) > 70){ use(); next(dx > 0 ? 1 : -1); }
-      else { top.classList.remove('drag'); top.style.transform = ''; }
+      else { top.classList.remove('is-drag'); top.style.transform = ''; }
     }
     list.addEventListener('pointerup', end); list.addEventListener('pointercancel', end);
     ctl.addEventListener('click', function(e){ var b = e.target.closest('button'); if (!b) return; use(); if (b.dataset.d > 0) next(-1); else back(); });
