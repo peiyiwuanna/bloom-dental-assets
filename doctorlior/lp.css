@@ -110,7 +110,7 @@
   .flip{position:relative;aspect-ratio:3/4;perspective:1400px}
   .flip .in{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .9s var(--ease)}
   .flip .f,.flip .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;padding:24px}
-  .flip .f{background:#fff;border:1px solid var(--line)}
+  .flip .f{background:radial-gradient(120% 90% at 100% 100%,rgba(185,146,90,.16) 0%,rgba(185,146,90,0) 60%),linear-gradient(155deg,#fff 0%,var(--cream) 45%,var(--cream-2) 100%);border:1px solid rgba(185,146,90,.22)}
   .flip .b{background:var(--ink);color:rgba(250,250,244,.78);transform:rotateY(180deg)}
   .flip.on .in{transform:rotateY(180deg)}
   @media (hover:hover) and (pointer:fine){.flip:hover .in,.flip:has(:focus-visible) .in{transform:rotateY(180deg)}}
